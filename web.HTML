@@ -3,80 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook</title>
+    <title>Bookstore</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
 
         header {
-            background-color: #4267B2;
-            color: #fff;
-            padding: 10px;
+            background-color: #333;
+            color: white;
             text-align: center;
-            font-size: 24px;
+            padding: 1em;
         }
 
-        main {
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
             padding: 20px;
         }
 
-        .user-profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .user-profile img {
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        footer {
-            background-color: #f0f0f0;
-            padding: 10px;
+        .book-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 250px;
             text-align: center;
+            background-color: white;
         }
 
-        footer a {
-            color: #385898;
-            text-decoration: none;
-            margin: 0 10px;
+        .buy-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
-        .search-container {
-            text-align: right;
+        .search-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-
     <header>
-        <text style="text-align: left;">Facebook</text>
-        <div class="search-container"> <input type="text" placeholder="Search>"</div>
+        <h1>Bookstore</h1>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+            <button class="search-button" onclick="search()">Search</button>
+        </div>
+        
+        <script>
+            function search() {
+                var searchTerm = document.getElementById('searchInput').value;
+                alert('Searching for: ' + searchTerm);
+                // You can implement actual search functionality here
+            }
+        </script>
+
     </header>
 
-    <main>
-        <div class="user-profile">
-            <img src="profile-picture.jpg" alt="User Profile">
-            <div>
-                <h2>User Name</h2>
-                <p>Location</p>
-            </div>
+    <div class="book-container">
+        <div class="book-card">
+            <img src="book1.jpg" alt="Book 1">
+            <h3>Book Title 1</h3>
+            <p>Author: Author 1</p>
+            <p>Price: $19.99</p>
+            <button class="buy-button" onclick="addToCart('Book Title 1', 19.99)">Add to Cart</button>
         </div>
 
-        <!-- Add other content like posts, friend requests, etc. -->
-    </main>
+        <div class="book-card">
+            <img src="book2.jpg" alt="Book 2">
+            <h3>Book Title 2</h3>
+            <p>Author: Author 2</p>
+            <p>Price: $24.99</p>
+            <button class="buy-button" onclick="addToCart('Book Title 2', 24.99)">Add to Cart</button>
+        </div>
 
-    <footer>
-        <a href="#">About</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Cookie Policy</a>
-        <p>&copy; 2023 Facebook</p>
-    </footer>
+        <!-- Add more book cards as needed -->
+    </div>
 
+    <script>
+        function addToCart(bookTitle, price) {
+            // This is a placeholder function for adding items to the shopping cart
+            alert(`Added ${bookTitle} to the cart. Total: $${price}`);
+        }
+    </script>
 </body>
 </html>
